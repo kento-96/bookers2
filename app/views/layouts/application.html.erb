@@ -10,7 +10,7 @@
   </head>
 
   <body>
-  
+
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
        <div class="container">
@@ -30,7 +30,7 @@
 
               <%= link_to "Books", books_path, class:"fas fa-book-open nav-link text-light" %>
 
-              <%= link_to "logout", destroy_user_session_path, method: :delete, class:"fas fa-sgin-out-alt nav-link text-light" %>
+              <%= link_to "logout", destroy_user_session_path, method: :delete, class:"fas fa-sign-out-alt nav-link text-light" %>
 
           <% else %>
 
@@ -40,7 +40,7 @@
 
               <%= link_to "sign up", new_user_registration_path, class:"fas fa-user-plus nav-link text-light" %>
 
-              <%= link_to "login", new_user_session_path, class:"fas fa-sgin-in-alt nav-link text-light" %>
+              <%= link_to "login", new_user_session_path, class:"fas fa-sign-in-alt nav-link text-light" %>
 
             <% end %>
           </ul>
