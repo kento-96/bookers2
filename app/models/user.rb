@@ -42,6 +42,18 @@ class User < ApplicationRecord
     end
    end
 
+# 住所入力
+   include JpPrefecture
+   jp_prefecture :prefecture_code
+
+   def prefecture_name
+     JpPrefecture::Prefecture.find(code: prefecture_code).try(:neme)
+   end
+
+   def prefecture_neme=(prefecture_neme)
+     self.prefecture_code=JpPrefecture::Prefecture.find(neme: prefecuture_neme).code
+   end
+
   validates :name, uniqueness:true , presence:true, length: {maximum:20, minimum:2}
   validates :introduction,  length:{maximum:50}
 
