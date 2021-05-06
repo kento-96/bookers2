@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chats/show'
   get "home/about"=>"homes#about"
   devise_for :users,controllers: {
   registrations: "users/registrations"
@@ -18,6 +19,9 @@ Rails.application.routes.draw do
   end
 
   get "search"=>"searches#search"
+  
+  get "chat/:id" => "chats#show",as:"chat"
+  resources :chats,only: [:create]
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
