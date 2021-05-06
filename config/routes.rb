@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get "home/about"=>"homes#about"
-  devise_for :users
+  devise_for :users,controllers: {
+  registrations: "users/registrations"
+ }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'homes#top'
   resources :books do
@@ -14,7 +16,9 @@ Rails.application.routes.draw do
   get 'followers' => 'relationships#followers', as: 'followers'
 
   end
-  
+
   get "search"=>"searches#search"
+
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
 end
